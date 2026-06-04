@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro JSON Editor</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Monaco Editor Loader -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar: File Tree -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <span class="title">EXPLORER</span>
+                <div class="sidebar-actions">
+                    <button id="new-file-btn" title="New File"><i data-lucide="file-plus"></i></button>
+                    <button id="new-folder-btn" title="New Folder"><i data-lucide="folder-plus"></i></button>
+                </div>
+            </div>
+            <div id="file-tree" class="file-tree">
+                <!-- Tree items will be injected here -->
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Breadcrumbs -->
+            <nav class="breadcrumbs" id="breadcrumbs">
+                <i data-lucide="folder"></i> <span>root</span>
+            </nav>
+
+            <!-- Tabs Bar -->
+            <div class="tabs-container" id="tabs-container">
+                <!-- Tabs will be injected here -->
+            </div>
+
+            <!-- Editor Wrapper -->
+            <div class="editor-wrapper">
+                <div id="editor-container"></div>
+                
+                <!-- Quick Toolbar (Floating/Absolute) -->
+                <div class="editor-toolbar">
+                    <button id="btn-prettify" title="Format JSON"><i data-lucide="wand-2"></i> Prettify</button>
+                    <button id="btn-minify" title="Minify JSON"><i data-lucide="shrink"></i> Minify</button>
+                    <div class="separator"></div>
+                    <button id="btn-validate" title="Validate JSON"><i data-lucide="check-circle"></i> Validate</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Status Bar -->
+        <footer class="status-bar">
+            <div class="status-left">
+                <span id="status-validity" class="status-item"><i data-lucide="info"></i> Ready</span>
+            </div>
+            <div class="status-right">
+                <span class="status-item" id="status-cursor">Ln 1, Col 1</span>
+                <span class="status-item">UTF-8</span>
+                <span class="status-item">JSON</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Context Menu -->
+    <div id="context-menu" class="context-menu hidden">
+        <div class="menu-item" data-action="new-file">
+            <i data-lucide="file-plus"></i> New File
+        </div>
+        <div class="menu-item" data-action="new-folder">
+            <i data-lucide="folder-plus"></i> New Folder
+        </div>
+        <div class="separator"></div>
+        <div class="menu-item" data-action="rename">
+            <i data-lucide="edit-3"></i> Rename
+        </div>
+        <div class="menu-item" data-action="delete" class="danger">
+            <i data-lucide="trash-2"></i> Delete
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
